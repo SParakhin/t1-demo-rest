@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: demo-rest
+  jackson:
+    default-property-inclusion: NON_NULL
+
+  liquibase:
+    enabled: true
+    change-log: db/changelog/db.changelog-master.xml
+
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/users
+    username: admin
+    password: password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties.hibernate.temp.use_jdbc_metadata_defaults: true
+    show-sql: true
+logging.level.org.springframework.web: error
+logging.level.org.hibernate: error

@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet author="Sergey Parakhin" id="1" >
+
+    <preConditions onError="WARN" onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="users" schemaName="public"/>
+      </not>
+    </preConditions>
+
+    <createTable tableName="users" schemaName="public">
+
+      <column name="id" type="uuid">
+        <constraints primaryKey="true"/>
+      </column>
+
+      <column name="name" type="VARCHAR(128)">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="phone" type="VARCHAR(128)">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="email" type="VARCHAR(128)">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
+
+  </changeSet>
+
+</databaseChangeLog>
